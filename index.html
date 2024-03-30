@@ -30,12 +30,11 @@ Lafe no pudo con el ataque de independiente, que a los 17&#39; del segundo tiemp
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reproductor de Video con DPlayer</title>
 
-    <!-- Precarga de la fuente Poppins desde Google Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"></noscript>
-
     <!-- Incluye la biblioteca de DPlayer desde el CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer@1.25.0/dist/DPlayer.min.css">
+
+    <!-- Incluye la fuente Poppins desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap">
 </head>
 
 <body>
@@ -47,14 +46,12 @@ Lafe no pudo con el ataque de independiente, que a los 17&#39; del segundo tiemp
         <div id="dplayer-container"></div>
 
         <!-- Capa con texto y botón de play -->
-        <div id="overlay">
-            <p style="text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 34px; color: #00AAFF; margin-bottom: -10px;">
-                Gol de Alex Luna 1 - 0
-            </p>
-            <button id="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: transparent; border: none; color: #00AAFF; font-size: 26px; cursor: pointer; margin-top: -1.5px;">
+        <div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: none; text-align: center;">
+            <p style="font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 34px; color: #00AAFF; margin-bottom: 20px;">Gol de Alex Luna 1 - 0</p>
+            <button id="play-button" style="background-color: transparent; border: none; color: #00AAFF; font-size: 26px; cursor: pointer;">
                 ▶️
             </button>
-					<p style="text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 34px; color: #00AAFF; margin-top: 20px;">Independiente - Laferrere</p>
+            <p style="font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 34px; color: #00AAFF; margin-top: 20px;">Independiente - Laferrere</p>
         </div>
 
     </div>
@@ -116,28 +113,6 @@ Lafe no pudo con el ataque de independiente, que a los 17&#39; del segundo tiemp
             max-width: 801px;
         }
 
-        /* Agrega estilos para la capa de superposición */
-        #overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            pointer-events: none; /* Permite que los eventos pasen a través de la capa */
-            text-align: center; /* Añade alineación central al texto */
-        }
-
-        /* Agrega estilos al botón de play */
-        #play-button {
-            display: inline-block;
-            margin-top: 5px; /* Ajusta el margen superior para posicionar el botón un poco más abajo */
-        }
-
         /* Oculta los controles del reproductor por defecto */
         .dplayer-controller {
             opacity: 0;
@@ -155,25 +130,11 @@ Lafe no pudo con el ataque de independiente, que a los 17&#39; del segundo tiemp
         .dplayer-controller .dplayer-icons path {
             fill: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
         }
-
-        /* Ajusta el estilo del menú de configuración */
-        .dplayer-menu {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700; /* Fuente Poppins Bold */
-        }
-
-        /* Ajusta el estilo de los elementos de texto en el menú de configuración */
-        .dplayer-menu-item-text,
-        .dplayer-menu-subtitle {
-            color: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
-            font-weight: 700 !important; /* Fuente Poppins Bold */
-        }
     </style>
 
 </body>
 
-</html>
-		      
+</html>	      
 		      <div class="EmVfjc qs41qe UzswCe" data-loadingmessage=" " jscontroller="qAKInc" jsaction="animationend:kWijWc;dyRcpb:dyRcpb" data-active="true" jsname="Hy6Uif"><div class="Cg7hO" aria-live="assertive" jsname="vyyg5"> </div><div jsname="Hxlbvc" class="xu46lf"><div class="ir3uv uWlRce co39ub"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div><div class="ir3uv GFoASc Cn087"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div><div class="ir3uv WpeOqd hfsr6b"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div><div class="ir3uv rHV3jf EjXFBf"><div class="xq3j6 ERcjC"><div class="X6jHbb GOJTSe"></div></div><div class="HBnAAc"><div class="X6jHbb GOJTSe"></div></div><div class="xq3j6 dj3yTd"><div class="X6jHbb GOJTSe"></div></div></div></div></div><iframe jsname="WMhH6e" class=" YMEQtf" frameborder="0" sandbox="allow-scripts allow-popups allow-forms allow-same-origin allow-popups-to-escape-sandbox allow-downloads allow-storage-access-by-user-activation" id="3b35647492b12983_21" name="3b35647492b12983_21" scrolling="no" title="Custom embed" aria-label="Custom embed"></iframe></div></div></div></div></div></div></div></div><div class="oKdM2c ZZyype"><div id="h.7f69c128b91dfadb_11" class="hJDwNd-AhqUyc-uQSCkd Ft7HRd-AhqUyc-uQSCkd jXK9ad D2fZ2 zu5uec wHaque g5GTcb QaN0Zc QjXeod"><div class="jXK9ad-SmKAyb"><div class="tyJCtd OWlOyc baZpAe"><div jscontroller="VYKRW" jsaction="rcuQ6b:rcuQ6b;"><div class="WIdY2d M1aSXe"><div jsname="WXxXjd" style="padding-top: 38.2908792112%"></div><div class="YMEQtf"><div jsname="jkaScf" jscontroller="szRU7e" class="w536ob" data-enable-interaction="true" data-url="https://1845511943-atari-embeds.googleusercontent.com/embeds/16cb204cf3a9d4d223a0a3fd8b0eec5d/inner-frame-minified.html" data-code="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;es&quot;&gt;
 
