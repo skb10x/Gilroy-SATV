@@ -1,0 +1,211 @@
+   <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video con DPlayer</title>
+
+    <!-- Incluye la biblioteca de DPlayer desde el CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dplayer@1.25.0/dist/DPlayer.min.css">
+
+    <!-- Incluye la fuente Poppins desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap">
+</head>
+
+<body>
+
+    <!-- Contenedor principal -->
+    <div id="dplayer-container-wrapper" style="max-width: 801px; margin: 0 auto; position: relative;">
+
+        <!-- Contenedor para el reproductor de DPlayer -->
+        <div id="dplayer-container"></div>
+
+        <!-- Capa con texto y botón de play -->
+        <div id="overlay">
+            <p style="text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 34px; color: #00AAFF; margin-bottom: -10px;">
+                Gol de Alex Luna 1 - 0
+            </p>
+            <button id="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: transparent; border: none; color: #00AAFF; font-size: 26px; cursor: pointer; margin-top: -1.5px;">
+                ▶️
+            </button>
+					<p style="text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 34px; color: #00AAFF; margin-top: 20px;">Independiente - Laferrere</p>
+        </div>
+
+    </div>
+
+    <!-- Script para cargar e inicializar DPlayer -->
+    <script src="https://cdn.jsdelivr.net/npm/dplayer@1.25.0/dist/DPlayer.min.js"></script>
+    <script>
+        // Configuración del video
+        var options = {
+            container: document.getElementById('dplayer-container'),
+            video: {
+                url: 'https://gitlab.com/solargentinotv/pruebaxd/-/raw/main/Gol_de_Alex_Luna._Independiente_1_-_Deportivo_Laferrere_0._32avos._Duod%C3%A9cima_edici%C3%B3n..mp4',
+                type: 'auto',
+            },
+            autoplay: false, // Reproducción automática
+            theme: '#00AAFF', // Color de tema en formato hexadecimal
+            lang: 'es', // Idioma español
+            loop: true, // Repetir el video
+            speed: [0.5, 1, 1.5, 2], // Velocidades de reproducción
+        };
+
+        // Inicializar DPlayer con las opciones
+        var player = new DPlayer(options);
+
+        // Ocultar el texto y el botón de play cuando el video se reproduce
+        player.on('play', function () {
+            document.getElementById('overlay').style.display = 'none';
+        });
+
+        // Mostrar el texto y el botón de play cuando el video se pausa
+        player.on('pause', function () {
+            document.getElementById('overlay').style.display = 'flex';
+        });
+
+        // Manejar el clic en el botón de play
+        document.getElementById('play-button').addEventListener('click', function () {
+            player.play();
+        });
+
+        // Mostrar y ocultar los controles cuando sea necesario
+        player.on('loadeddata', function () {
+            player.container.addEventListener('mouseenter', function () {
+                player.container.classList.remove('dplayer-hide-controller');
+            });
+
+            player.container.addEventListener('mouseleave', function () {
+                if (!player.video.paused) {
+                    player.container.classList.add('dplayer-hide-controller');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Ajusta el tamaño del reproductor */
+        .dplayer {
+            width: 800px;
+            height: 450px;
+            max-width: 801px;
+        }
+
+        /* Agrega estilos para la capa de superposición */
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none; /* Permite que los eventos pasen a través de la capa */
+            text-align: center; /* Añade alineación central al texto */
+        }
+
+        /* Agrega estilos al botón de play */
+        #play-button {
+            display: inline-block;
+            margin-top: 5px; /* Ajusta el margen superior para posicionar el botón un poco más abajo */
+        }
+
+        /* Oculta los controles del reproductor por defecto */
+        .dplayer-controller {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        /* Muestra los controles cuando no se está reproduciendo el video */
+        .dplayer-hide-controller:not(.dplayer-playing) .dplayer-controller {
+            opacity: 1 !important;
+        }
+
+        /* Cambia el color del botón de play/pause */
+        .dplayer-button-play path,
+        .dplayer-button-pause path,
+        .dplayer-controller .dplayer-icons path {
+            fill: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+        }
+
+        /* Cambia el color del logo del volumen */
+        .dplayer-volume-icon path {
+            fill: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+        }
+
+        /* Cambia el color del icono de configuración */
+        .dplayer-setting-icon path {
+            fill: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+        }
+
+        /* Cambia el color de las letras y números */
+        .dplayer-controller .dplayer-icons .dplayer-time,
+        .dplayer-controller .dplayer-icons .dplayer-volume,
+        .dplayer-controller .dplayer-icons .dplayer-time-now,
+        .dplayer-controller .dplayer-icons .dplayer-time-total,
+        .dplayer-menu-label,
+        .dplayer-menu-item,
+        .dplayer-menu-item a,
+        .dplayer-menu-subtitle,
+        .dplayer-tooltip-content,
+        .dplayer-subtitle,
+        .dplayer-menu-subtitle,
+        .dplayer-menu-item-text,
+        .dplayer-menu-item-content,
+        .dplayer-menu-subtitle,
+        .dplayer-setting-speed,
+        .dplayer-setting-loop,
+        .dplayer-bar-time,
+        .dplayer-bar-cursortime,
+        .dplayer-volume-bar-wrap,
+        .dplayer-volume-bar,
+        .dplayer-volume-percent,
+        .dplayer-full-in-icon path,
+        .dplayer-full-out-icon path,
+        .dplayer-full-text,
+        .dplayer-volume-panel .dplayer-setting-volume input,
+        .dplayer-setting-speed-item,
+        .dplayer-setting-item,
+        .dplayer-volume-bar-percent { /* Nueva regla para el porcentaje de volumen */
+            color: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 700 !important; /* Fuente Poppins Bold */
+        }
+
+        /* Elimina los bordes negros */
+        .dplayer-video-current {
+            border: none !important;
+        }
+
+        /* Ajusta el estilo del menú de configuración */
+        .dplayer-menu {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700; /* Fuente Poppins Bold */
+        }
+
+        /* Ajusta el estilo de los elementos de texto en el menú de configuración */
+        .dplayer-menu-item-text,
+        .dplayer-menu-subtitle {
+            color: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+            font-weight: 700 !important; /* Fuente Poppins Bold */
+        }
+
+        /* Ajusta el estilo de las opciones de velocidad en el menú de configuración */
+        .dplayer-menu-speed-item {
+            color: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+            font-weight: 700 !important; /* Fuente Poppins Bold */
+        }
+
+        /* Ajusta el estilo de la slidebox de "Loop" */
+        .dplayer-menu-item input:checked+.dplayer-menu-checked .dplayer-menu-label {
+            background-color: hsla(200, 100%, 50%, 0.3) !important; /* Rojo intenso con transparencia */
+            border-color: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
+        }
+    </style>
+
+</body>
+
+</html>
