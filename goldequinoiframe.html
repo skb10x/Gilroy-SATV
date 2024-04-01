@@ -222,26 +222,35 @@
             color: hsla(200, 100%, 50%, 0.3) !important; /* Rojo intenso con transparencia */
             border-color: hsla(200, 100%, 50%, 1) !important; /* Rojo intenso */
         }
-        .dplayer-controller .dplayer-icons .dplayer-toggle input:checked+label {
-        border-color: #00AAFF;
-        }
-        .dplayer-controller .dplayer-icons .dplayer-toggle input:checked+label:before {
-        width: 30px;
-        background: #00AAFFC7;
-        }
-        .dplayer-controller .dplayer-icons .dplayer-toggle {
-        content: "";
-        position: absolute;
-        display: block;
-        left: 0;
-        top: 0;
-        border-radius: 15px;
-        background: #00AAFF;
-        transition: .2s ease-in-out;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-        height: 18px;
-        width: 18px;
-        }
+/* Ajusta el estilo del interruptor de selección en el menú de configuración */
+.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label {
+    border-color: #00AAFF;
+}
+
+.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:before {
+    width: 20px; /* Ajusta el ancho del indicador del interruptor */
+    background: #00AAFFC7;
+}
+
+.dplayer-controller .dplayer-icons .dplayer-toggle {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    border-radius: 15px;
+    background: #FFFFFF; /* Cambia el color de fondo del interruptor */
+    transition: background-color 0.2s ease-in-out; /* Añade transición al color de fondo */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    height: 18px;
+    width: 36px; /* Ajusta el ancho total del interruptor */
+}
+
+/* Ajusta el estilo del interruptor de selección cuando está activo */
+.dplayer-controller .dplayer-icons .dplayer-toggle input:checked + label:before {
+    background: #00AAFF; /* Cambia el color de fondo del indicador del interruptor cuando está activo */
+}
+
 </style>
 
 </body>
