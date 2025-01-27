@@ -127,13 +127,13 @@
 @font-face {
     font-family: 'Gilroy';
     src: url('Gilroy-Heavy.otf') format('opentype');
-    font-weight: 950;
+    font-weight: 1000;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Gilroy';
     src: url('Gilroy-HeavyItalic.otf') format('opentype');
-    font-weight: 950;
+    font-weight: 1000;
     font-style: italic;
 }
