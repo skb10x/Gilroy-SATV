@@ -77,7 +77,7 @@
 
 @font-face {
     font-family: 'Gilroy';
-    src: url('Gilroy-SemiboldItalic.otf') format('opentype');
+    src: url('Gilroy-SemiboldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
 }
